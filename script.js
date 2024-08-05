@@ -15,20 +15,21 @@ let fst_option_password = document.getElementById("first_password_generated");
 let scd_option_password = document.getElementById("second_password_generated");
 
 function displayFirstPassword() {
+    let user_number = document.getElementById("user_input").value;
     let newfstPassword = "";
     let newscdPassword = "";
-    for (let i = 0; i < characters.length; i++) {
+    let new_user_number = parseInt(user_number);
+    for (let i = 0; i < new_user_number; i++) {
         let randomCharacter1 = Math.floor(Math.random() * characters.length);
-        let randomCharacter2 = Math.floor(Math.random() * characters.length);
+        let randomCharacter2 = Math.floor(Math.random() * characters.length)
         newfstPassword += characters[randomCharacter1];
         newscdPassword += characters[randomCharacter2];
-        if (newfstPassword.length === 8 && newscdPassword.length === 8) {
-            fst_option_password.textContent = newfstPassword;
-            scd_option_password.textContent = newscdPassword;
-            fst_option_password.style.display = "block";
-            scd_option_password.style.display = "block";
-        }
+        fst_option_password.textContent = newfstPassword;
+        scd_option_password.textContent = newscdPassword;
+        fst_option_password.style.display = "block";
+        scd_option_password.style.display = "block";
     }
+
 }
 
 let generatePassword = document.getElementById("main_password");
