@@ -20,16 +20,19 @@ function displayFirstPassword() {
     let newscdPassword = "";
     let new_user_number = parseInt(user_number);
     for (let i = 0; i < new_user_number; i++) {
-        let randomCharacter1 = Math.floor(Math.random() * characters.length);
-        let randomCharacter2 = Math.floor(Math.random() * characters.length)
-        newfstPassword += characters[randomCharacter1];
-        newscdPassword += characters[randomCharacter2];
-        fst_option_password.textContent = newfstPassword;
-        scd_option_password.textContent = newscdPassword;
-        fst_option_password.style.display = "block";
-        scd_option_password.style.display = "block";
+        if (new_user_number <= 15) {
+            let randomCharacter1 = Math.floor(Math.random() * characters.length);
+            let randomCharacter2 = Math.floor(Math.random() * characters.length)
+            newfstPassword += characters[randomCharacter1];
+            newscdPassword += characters[randomCharacter2];
+            fst_option_password.textContent = newfstPassword;
+            scd_option_password.textContent = newscdPassword;
+            fst_option_password.style.display = "block";
+            scd_option_password.style.display = "block";
+        } else {
+            return alert("There are to many characters, only allow less than or equal to 15");
+        }
     }
-
 }
 
 let generatePassword = document.getElementById("main_password");
